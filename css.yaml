@@ -8,16 +8,15 @@ resources:
       type: github
       name: 'kohithreddy/prcheck'
       endpoint: 'ReddyStuff'
-      ref: 'refs/heads/main'
-      trigger: 
-        branches:
-         include: 
-          - 'feature/futcor-drop-1.0-*'
-          - 'feature/futcor-drop-1.2-*'
-          - 'feature/futcor-drop-1.3-*'
-         exclude:
-          - release/*
-  
+#       trigger: 
+#         branches:
+#          include: 
+#           - 'feature/futcor-drop-1.0-*'
+#           - 'feature/futcor-drop-1.2-*'
+#           - 'feature/futcor-drop-1.3-*'
+#          exclude:
+#           - release/*
+
 
 trigger:
   #batch: true
