@@ -1,0 +1,74 @@
+name: "$(Build.Reason)--$(Build.SourceBranch)--$(Rev:r)"
+
+appendCommitMessageToRunName: false
+
+resources:
+  repositories:
+    - repository: prcheck
+      type: github
+      name: 'kohithreddy/prcheck'
+      endpoint: 'ReddyStuff'
+#       trigger: 
+#         branches:
+#          include: 
+#           - 'feature/futcor-drop-1.0-*'
+#           - 'feature/futcor-drop-1.2-*'
+#           - 'feature/futcor-drop-1.3-*'
+#          exclude:
+#           - release/*
+
+
+trigger:
+  #batch: true
+  branches:
+    include:
+    - 'feature/futcor-drop-1.0-*'
+    - 'feature/futcor-drop-1.2-*'
+    - 'feature/futcor-drop-1.3-*'
+pr:
+  branches:
+    include:
+    - release/futcor-drop-1.0
+    - release/futcor-drop-1.2
+    - release/futcor-drop-1.3
+
+
+pool:
+  #name: aci-es-agents
+  vmImage: 'Windows-latest'
+
+stages:
+- stage: Validate
+  displayName: Validate
+  jobs:
+  - job: ValidateAndPlanTerraformDevvUks
+    dependsOn: []
+            
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+            echo Actual Build Reason $(Build.Reason)                
+            echo Actual Build Branch $(Build.SourceBranch)
+
+
+  - job: ValidateAndPlanApiTerraformDevvUks
+    dependsOn: []
+
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+            echo Actual Build Reason $(Build.Reason)                
+            echo Actual Build Branch $(Build.SourceBranch)
+                
+
+
+  - job: ValidateFunctionApp
+    dependsOn: []
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+            echo Actual Build Reason $(Build.Reason)                
+            echo Actual Build Branch $(Build.SourceBranch)
