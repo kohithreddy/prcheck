@@ -1,4 +1,4 @@
-name: "Reasaon is $(Build.Reason) || TriggeredBy $(Build.SourceBranch) $(Rev:r)"
+name: "Reasaon-$(Build.Reason)||TriggeredBy-$(Build.SourceBranch)-$(Rev:r)"
 
 appendCommitMessageToRunName: false
 
