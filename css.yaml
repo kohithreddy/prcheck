@@ -20,7 +20,7 @@ resources:
 
 
 trigger:
-  #batch: true
+  batch: true
   branches:
     include:
     - 'feature/futcor-drop-1.0-*'
